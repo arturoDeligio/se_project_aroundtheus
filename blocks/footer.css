@@ -1,0 +1,9 @@
+.footer {
+  display: flex;
+}
+
+.footer__copyright {
+  color: #545454;
+  width: 318px;
+  margin-top: 67px;
+}

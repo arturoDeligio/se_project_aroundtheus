@@ -1,27 +1,3 @@
 .cards {
-  /*fonts */
-}
-
-.card__list {
-  display: grid;
-}
-
-.card__image {
-  width: 282px;
-  height: 282px;
-}
-
-.card__description {
-  display: flex;
-  background-color: white;
-  color: black;
-  padding-left: 20px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.card__like-button {
-  background: transparent url(../images/like\ inactive.svg) center;
-  width: 21px;
-  height: 18px;
+  margin-top: 30px;
 }
