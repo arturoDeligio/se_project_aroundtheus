@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.card__list {
+.card__gallery {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
