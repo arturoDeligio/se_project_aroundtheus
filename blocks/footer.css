@@ -5,5 +5,13 @@
 .footer__copyright {
   color: #545454;
   width: 318px;
-  margin-top: 67px;
+  padding: 67px 0 60px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0 0 0 19px;
+  }
 }
