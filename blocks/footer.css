@@ -6,12 +6,20 @@
   color: #545454;
   width: 318px;
   padding: 67px 0 60px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 @media screen and (max-width: 480px) {
+  .footer {
+    margin: 0;
+  }
+
   .footer__copyright {
     font-size: 14px;
     line-height: 1.2;
     margin: 0 0 0 19px;
+    padding: 48px 0 36px;
   }
 }

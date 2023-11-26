@@ -27,6 +27,9 @@
   font-weight: 500;
   grid-area: title;
   margin: 0 0 7px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__description {
@@ -35,6 +38,10 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 281px;
 }
 
 .profile__edit-button {
