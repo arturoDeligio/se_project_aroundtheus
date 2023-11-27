@@ -44,9 +44,3 @@
   transition: 1s linear;
   cursor: pointer;
 }
-
-@media screen and (max-width: 480px) {
-  .cards {
-    margin-top: 36px;
-  }
-}
