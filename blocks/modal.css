@@ -6,7 +6,6 @@
   right: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: flex; */
   padding: 0 19px;
   display: none;
 }
