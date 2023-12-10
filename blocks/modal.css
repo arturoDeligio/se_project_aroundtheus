@@ -21,6 +21,8 @@
   border-radius: 10px;
   width: 430px;
   height: 330px;
+  box-sizing: border-box;
+  padding: 34px 36px 36px;
 }
 
 .modal__close {
@@ -45,7 +47,7 @@
   font-weight: 900;
   line-height: 1.2;
   margin: 0;
-  padding: 34px 0 54px 36px;
+  padding: 0;
 }
 
 .modal__form {
@@ -55,9 +57,9 @@
 }
 
 .modal__title {
-  margin: 0 36px 30px;
+  margin: 54px 0 30px 0;
   height: 27px;
-  padding: 0;
+  padding: 0 0 0 5px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 14px;
@@ -71,9 +73,9 @@
 .modal__description {
   border: none;
   height: 27px;
-  padding: 0;
+  padding: 0 0 0 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0 36px 48px;
+  margin: 0 0 48px;
   font-size: 14px;
   line-height: 1.2;
 }
@@ -91,7 +93,7 @@
   font-size: 18px;
   line-height: 1.1;
   cursor: pointer;
-  margin: 0 36px 36px 36px;
+  margin: 0;
   padding: 0;
 }
 
@@ -99,6 +101,7 @@
   .modal__container {
     max-width: 282px;
     max-height: 322px;
+    padding: 25px 22px 25px;
   }
 
   .modal__button {
@@ -114,7 +117,7 @@
   }
 
   .modal__button {
-    margin: 0 22px 25px;
+    margin: 0;
     font-size: 14px;
     line-height: 1.2;
   }
@@ -124,17 +127,16 @@
   .modal__heading {
     max-width: 238px;
     font-size: 18px;
-    padding: 25px 0 75px 22px;
   }
 
   .modal__title {
-    margin: 0 auto;
+    margin: 54px 0 30px 0;
     height: 27px;
     min-width: 238px;
   }
 
   .modal__description {
-    margin: 30px 22px 45px;
+    margin: 0 0 48px;
     height: 27px;
     min-width: 238px;
   }
