@@ -39,6 +39,11 @@
   background-size: contain;
 }
 
+.modal__close:hover {
+  opacity: 0.6;
+  transition: 1s linear;
+}
+
 .modal__heading {
   color: black;
   max-width: 330px;
@@ -97,6 +102,11 @@
   padding: 0;
 }
 
+.modal__button:hover {
+  opacity: 0.8;
+  transition: 1s linear;
+}
+
 @media screen and (max-width: 630px) {
   .modal__container {
     max-width: 282px;
@@ -130,13 +140,13 @@
   }
 
   .modal__title {
-    margin: 54px 0 30px 0;
+    margin: 75px 0 30px 0;
     height: 27px;
     min-width: 238px;
   }
 
   .modal__description {
-    margin: 0 0 48px;
+    margin: 0 0 45px;
     height: 27px;
     min-width: 238px;
   }

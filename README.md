@@ -16,8 +16,12 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Images**
 
-Heres a link for the deployed project on Github [github link](https://arturodeligio.github.io/se_project_aroundtheus/)
+Heres a link for the deployed project on Github [Around The U.S](https://arturodeligio.github.io/se_project_aroundtheus/)
 
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
 
 Good luck and have fun!
+
+![heres a demo of mobile resolution functionality](./images/demos/Dynamic%20mobile%20resolution%20demo.gif)
+
+![functional inputs](./images/demos/Inputs%20demo.gif)
