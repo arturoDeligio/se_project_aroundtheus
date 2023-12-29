@@ -41,7 +41,8 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = document.querySelector(
   "#profile-card-close-modal"
 );
-const AddNewCardButton = document.querySelector("#profile-add-button");
+const addNewCardButton = document.querySelector("#profile-add-button");
+const addCardFormElement = document.querySelector("#add-card-form");
 
 const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
@@ -54,6 +55,8 @@ const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
+const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
+const cardUrlInput = addCardFormElement.querySelector("#card-url-input");
 /* -------------------------------------------------------------------------- */
 /*                                  functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -71,12 +74,10 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-// function openModal() {
-//   profileEditTitleInput.value = profileTitle.textContent;
-//   profileEditDescrptionInput.value = profileDescription.textContent.trim();
-
-//   profileEditModal.classList.add("modal_opened");
-// }
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -92,6 +93,15 @@ function handleProfileEditSubmit(e) {
   closePopop(profileEditModal);
 }
 
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  renderCard({ name, link }, cardListEl);
+
+  closePopop(addCardModal);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -105,14 +115,12 @@ profileModalCloseButton.addEventListener("click", () =>
   closePopop(profileEditModal)
 );
 
-AddNewCardButton.addEventListener("click", () => openModal(addCardModal));
+addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closePopop(addCardModal)
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
