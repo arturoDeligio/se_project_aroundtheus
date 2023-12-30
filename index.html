@@ -95,6 +95,7 @@
           class="modal__close"
           type="button"
           id="profile-card-close-modal"
+          aria-label="close"
         ></button>
         <h2 class="modal__heading">New place</h2>
         <form class="modal__form" id="add-card-form">
@@ -118,6 +119,19 @@
         </form>
       </div>
     </div>
+    <!--Modal Preview-->
+    <div class="modal" id="preview__image-modal">
+      <div class="preview__modal-container">
+        <button
+          class="modal__close"
+          type="button"
+          id="preview__image-close-modal"
+        ></button>
+        <img src="" alt="" class="preview__image" />
+        <h2 class="modal__preview-title"></h2>
+      </div>
+    </div>
+    <!--card template-->
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />

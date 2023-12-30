@@ -25,6 +25,11 @@
   padding: 34px 36px 36px;
 }
 
+.preview__modal-container {
+  position: relative;
+  margin: auto;
+}
+
 .modal__close {
   background-image: url("../images/Close\ button\ icon.svg");
   border: none;

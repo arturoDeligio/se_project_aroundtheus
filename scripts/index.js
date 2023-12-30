@@ -58,6 +58,12 @@ const cardTemplate =
 const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
 const cardUrlInput = addCardFormElement.querySelector("#card-url-input");
 
+const previewImageModal = document.querySelector("#preview__image-modal");
+const previewImage = previewImageModal.querySelector(".preview__image");
+const previewImageTitle = previewImageModal.querySelector(
+  ".modal__preview-title"
+);
+
 /* -------------------------------------------------------------------------- */
 /*                                  functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -76,7 +82,12 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  //add click listener to card image element
+  cardImageEl.addEventListener("click", () => {
+    previewImage.setAttribute("src", cardData.link);
+    previewImage.setAttribute("alt", cardData.name);
+    previewImageTitle.setAttribute.textContent = cardData.name;
+    openModal(previewImageModal);
+  });
   //openModal with previewImageModal
 
   likeButton.addEventListener("click", () => {
