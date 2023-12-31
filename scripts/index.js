@@ -50,6 +50,7 @@ const profileEditTitleInput = document.querySelector("#profile-title-input");
 const profileEditDescrptionInput = document.querySelector(
   "#profile-description-input"
 );
+
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
