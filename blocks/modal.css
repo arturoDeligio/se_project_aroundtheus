@@ -97,6 +97,16 @@
   transition: 1s linear;
 }
 
+.modal__preview-image {
+  width: 433px;
+  height: 540px;
+}
+
+.modal__preview-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2px;
+}
 @media screen and (max-width: 630px) {
   .modal__container {
     max-width: 282px;
