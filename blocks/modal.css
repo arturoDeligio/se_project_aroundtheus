@@ -97,26 +97,12 @@
   transition: 1s linear;
 }
 
-.preview__modal-container {
+.modal__preview-container {
   position: relative;
   margin: auto;
 }
 
-.preview__modal-close-button {
-  background-image: url("../images/Close\ button\ icon.svg");
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  position: absolute;
-  top: -45px;
-  right: -45px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.preview__modal-close-button:hover {
+.modal__preview-close-button:hover {
   opacity: 0.6;
   transition: 1s linear;
 }
@@ -152,7 +138,7 @@
     height: 26px;
   }
 
-  .preview__modal-close-button {
+  .modal__preview-close-button {
     width: 26px;
     height: 26px;
     top: -28px;
