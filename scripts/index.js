@@ -70,7 +70,7 @@ const previewImageCloseButton = previewImageModal.querySelector(
 /* -------------------------------------------------------------------------- */
 /*                                  functions                                 */
 /* -------------------------------------------------------------------------- */
-function closePopop(modal) {
+function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
@@ -118,7 +118,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileEditTitleInput.value;
   profileDescription.textContent = profileEditDescrptionInput.value;
-  closePopop(profileEditModal);
+  closePopup(profileEditModal);
 }
 
 function handleAddCardFormSubmit(e) {
@@ -127,7 +127,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
 
-  closePopop(addCardModal);
+  closePopup(addCardModal);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -140,16 +140,16 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 profileModalCloseButton.addEventListener("click", () =>
-  closePopop(profileEditModal)
+  closePopup(profileEditModal)
 );
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
-  closePopop(addCardModal)
+  closePopup(addCardModal)
 );
 
 previewImageCloseButton.addEventListener("click", () =>
-  closePopop(previewImageModal)
+  closePopup(previewImageModal)
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
