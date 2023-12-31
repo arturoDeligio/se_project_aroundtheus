@@ -25,3 +25,5 @@ Good luck and have fun!
 ![heres a demo of mobile resolution functionality](./images/demos/Dynamic%20mobile%20resolution%20demo.gif)
 
 ![functional inputs](./images/demos/Inputs%20demo.gif)
+
+Recently Added animations and 3 more popups along with user interactivity to upload pictures.

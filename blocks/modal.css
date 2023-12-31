@@ -140,8 +140,9 @@
   }
 
   .modal__button {
-    max-width: 238px;
     max-height: 46px;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .modal__close {
@@ -149,12 +150,6 @@
     right: 5px;
     width: 26px;
     height: 26px;
-  }
-
-  .modal__button {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.2;
   }
 
   .preview__modal-close-button {
