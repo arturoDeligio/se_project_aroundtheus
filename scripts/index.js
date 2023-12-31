@@ -126,7 +126,7 @@ function handleAddCardFormSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
-
+  e.target.reset(name, link);
   closePopup(addCardModal);
 }
 
