@@ -75,7 +75,10 @@
             class="modal__input"
             id="profile-title-input"
             required
+            minlength="2"
+            maxlength="40"
           />
+          <span class="modal__error"></span>
           <input
             type="text"
             name="description"
@@ -83,7 +86,10 @@
             class="modal__input"
             id="profile-description-input"
             required
+            minlength="2"
+            maxlength="200"
           />
+          <span class="modal__error"></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
@@ -107,6 +113,8 @@
             id="card-title-input"
             required
           />
+
+          <span class="modal__error"></span>
           <input
             type="text"
             name="url"
@@ -115,6 +123,7 @@
             id="card-url-input"
             required
           />
+          <span class="modal__error"></span>
           <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
@@ -150,5 +159,6 @@
         </div></li
     ></template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
