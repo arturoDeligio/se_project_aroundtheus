@@ -91,6 +91,9 @@
 .modal__input_type_error {
   border-bottom: 1px solid #ff0000;
 }
+/* .modal__error_visible {
+  border-bottom: 1px solid #ff0000;
+} */
 
 .modal__button {
   height: 50px;
@@ -107,6 +110,10 @@
 .modal__button:hover {
   opacity: 0.8;
   transition: 1s linear;
+}
+
+.modal__button_disabled {
+  opacity: 0.2;
 }
 
 .modal__preview-container {
