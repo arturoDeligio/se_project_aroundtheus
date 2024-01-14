@@ -67,12 +67,29 @@ const previewImageTitle = previewImageModal.querySelector(
 const previewImageCloseButton = previewImageModal.querySelector(
   "#preview__image-close-modal"
 );
+
+const modalOpenedEventClose = document.querySelectorAll(".modal");
 /* -------------------------------------------------------------------------- */
 /*                                  functions                                 */
 /* -------------------------------------------------------------------------- */
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
+
+function closePopupEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const popupOpen = document.querySelector(".modal_opened");
+    closePopup(popupOpen);
+  }
+}
+
+modalOpenedEventClose.forEach((modalMouseDown) => {
+  modalMouseDown.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closePopup(modalMouseDown);
+    }
+  });
+});
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -109,6 +126,7 @@ function renderCard(cardData, wrapper) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closePopupEscapeKey);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -144,6 +162,7 @@ profileModalCloseButton.addEventListener("click", () =>
 );
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+
 addCardModalCloseButton.addEventListener("click", () =>
   closePopup(addCardModal)
 );
