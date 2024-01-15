@@ -74,18 +74,19 @@ const modalOpenedEventClose = document.querySelectorAll(".modal");
 /* -------------------------------------------------------------------------- */
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closePopupEscapeKey);
 }
 
 function closePopupEscapeKey(evt) {
-  const popupOpen = document.querySelector(".modal_opened");
   if (evt.key === "Escape") {
+    const popupOpen = document.querySelector(".modal_opened");
     closePopup(popupOpen);
   }
 }
 
 modalOpenedEventClose.forEach((modalMouseDown) => {
   modalMouseDown.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("modal")) {
+    if (evt.target === evt.currentTarget) {
       closePopup(modalMouseDown);
     }
   });

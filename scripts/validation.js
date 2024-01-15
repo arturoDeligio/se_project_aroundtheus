@@ -65,7 +65,7 @@ function setEventListenders(formElement, options) {
   const inputElements = [
     ...formElement.querySelectorAll(options.inputSelector),
   ];
-  const submitButton = formElement.querySelector(".modal__button");
+  const submitButton = formElement.querySelector(options.submitButtonSelector);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
