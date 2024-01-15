@@ -27,3 +27,5 @@ Good luck and have fun!
 ![functional inputs](./images/demos/Inputs%20demo.gif)
 
 Recently Added animations and 3 more popups along with user interactivity to upload pictures.
+
+Functionality for form validiation added. With also an escape key to close modal forms and clicking off modal also results in modal closing.
