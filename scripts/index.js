@@ -77,8 +77,8 @@ function closePopup(modal) {
 }
 
 function closePopupEscapeKey(evt) {
+  const popupOpen = document.querySelector(".modal_opened");
   if (evt.key === "Escape") {
-    const popupOpen = document.querySelector(".modal_opened");
     closePopup(popupOpen);
   }
 }
