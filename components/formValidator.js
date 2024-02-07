@@ -55,7 +55,7 @@ class FormValidator {
     _enableButton(submitButton, inactiveButtonClass);
   }
 
-  _setEventListenders() {
+  _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
@@ -71,7 +71,7 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    _setEventListenders(formElement, options);
+    _setEventListeners(formElement, options);
   }
 }
 

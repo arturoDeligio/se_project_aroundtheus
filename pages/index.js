@@ -39,6 +39,7 @@ const cardData = {
 };
 
 const card = new Card(cardData, "#card-template");
+
 card.getView();
 card._setEventListeners();
 
@@ -67,6 +68,8 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+const cardSelector = "#card-template";
 
 const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
 const cardUrlInput = addCardFormElement.querySelector("#card-url-input");
@@ -111,9 +114,9 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__trash-button");
 
-  // cardDeleteButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   cardImageEl.addEventListener("click", () => {
     previewImage.setAttribute("src", cardData.link);
@@ -134,7 +137,9 @@ function getCardElement(cardData) {
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
+  // const card = new Card(cardData, cardSelector);
   wrapper.prepend(cardElement);
+  // wrapper.prepend(card.getView());
 }
 
 function openModal(modal) {
@@ -209,3 +214,6 @@ const editFormValidator = new FormValidator(
   editFormElement
 );
 const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enableValidation(validationSettings);
+addFormValidator.enableValidation(validationSettings);
