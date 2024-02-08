@@ -215,5 +215,5 @@ const editFormValidator = new FormValidator(
 );
 const addFormValidator = new FormValidator(validationSettings, addFormElement);
 
-editFormValidator.enableValidation(validationSettings);
-addFormValidator.enableValidation(validationSettings);
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
