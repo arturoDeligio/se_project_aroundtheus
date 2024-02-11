@@ -6,6 +6,18 @@ export default class Card {
     this._handleImageClick = handleImageClick;
   }
 
+  getCardElement() {
+    this._cardElement = cardTemplate.cloneNode(true);
+    this._cardImageEl = cardElement.querySelector(".card__image");
+    this._cardTitleEl = cardElement.querySelector(".card__title");
+    this._likeButton = cardElement.querySelector(".card__like-button");
+    this._cardDeleteButton = cardElement.querySelector(".card__trash-button");
+
+    cardDeleteButton.addEventListener("click", () => {
+      cardElement.remove();
+    });
+  }
+
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")
