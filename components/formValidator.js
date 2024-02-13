@@ -70,6 +70,13 @@ class FormValidator {
     });
   }
 
+  resetValidation() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -86,9 +93,5 @@ const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-// const editFormValidator = new FormValidator(settings, editForm);
-// const addFormValidator = new FormValidator(settings, addForm);
-// editFormValidator.enableValidation();
 
 export default FormValidator;

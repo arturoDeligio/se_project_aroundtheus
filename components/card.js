@@ -18,6 +18,16 @@ export default class Card {
     });
   }
 
+  _handleDeleteCard() {
+    this._cardElement.remove();
+  }
+
+  _handleLikeIcon() {
+    this._cardElement
+      .querySelector(".card__like-button")
+      .classList.toggle("card__like-button_active");
+  }
+
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")
@@ -32,16 +42,9 @@ export default class Card {
 
     //".card__like-button"
     //".card__trash-button"
-  }
-
-  _handleDeleteCard() {
-    this._cardElement.remove();
-  }
-
-  _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    // this._cardImageEl.addEventListener("click", () => {
+    //   this._handleImageClick(this);
+    // });
   }
 
   getView() {
