@@ -33,16 +33,18 @@ const initialCards = [
   },
 ];
 
+const cardSelector = "#card-template";
+
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
+const card = new Card(cardData, cardSelector);
 
+// card._setEventListeners();
 card.getView();
-card._setEventListeners();
-
+// card._handleImageClick();
 /* -------------------------------------------------------------------------- */
 /*                                  elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -68,8 +70,6 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-
-const cardSelector = "#card-template";
 
 const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
 const cardUrlInput = addCardFormElement.querySelector("#card-url-input");
@@ -136,10 +136,10 @@ function getCardElement(cardData) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  // const card = new Card(cardData, cardSelector);
-  wrapper.prepend(cardElement);
-  // wrapper.prepend(card.getView());
+  // const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, cardSelector);
+  // wrapper.prepend(cardElement);
+  wrapper.prepend(card.getView());
 }
 
 function openModal(modal) {
