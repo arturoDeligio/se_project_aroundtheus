@@ -23,16 +23,16 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeIcon;
+      this._handleLikeIcon();
     });
-    // this._cardElement
-    //   .querySelector(".card__trash-button")
-    //   .addEventListener("click", () => {
-    //     this._handleDeleteCard();
-    //   });
-    // this._cardImageEl.addEventListener("click", () => {
-    //   this._handleImageClick(this);
-    // });
+    this._cardElement
+      .querySelector(".card__trash-button")
+      .addEventListener("click", () => {
+        this._handleDeleteCard();
+      });
+    this._cardImageEl.addEventListener("click", () => {
+      this._handleImageClick(this);
+    });
   }
 
   getView() {
@@ -46,7 +46,7 @@ export default class Card {
 
     this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._name;
-    this._cardTitleEl.textContent = this.name;
+    this._cardTitleEl.textContent = this._name;
 
     this._setEventListeners();
 
