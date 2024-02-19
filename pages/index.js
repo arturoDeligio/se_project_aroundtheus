@@ -82,14 +82,6 @@ function closePopupEscapeKey(evt) {
   }
 }
 
-modals.forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (evt.target === evt.currentTarget) {
-      closePopup(modal);
-    }
-  });
-});
-
 function renderCard(cardData, wrapper) {
   const card = new Card(cardData, cardSelector, handleImageClick);
   wrapper.prepend(card.getView());
@@ -114,7 +106,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileEditTitleInput.value;
   profileDescription.textContent = profileEditDescrptionInput.value;
-  editFormValidator._disableButton();
+  editFormValidator.disableButton();
   closePopup(profileEditModal);
 }
 
@@ -124,7 +116,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   e.target.reset();
-  addFormValidator._disableButton();
+  addFormValidator.disableButton();
   closePopup(addCardModal);
 }
 
@@ -132,24 +124,28 @@ function handleAddCardFormSubmit(e) {
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("mousedown", () => {
+profileEditButton.addEventListener("click", () => {
   profileEditTitleInput.value = profileTitle.textContent;
   profileEditDescrptionInput.value = profileDescription.textContent.trim();
+  editFormValidator.disableButton();
   openModal(profileEditModal);
 });
 
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("modal__opened")) {
+    if (evt.target.classList.contains("modal_opened")) {
       closePopup(modal);
     }
     if (evt.target.classList.contains("modal__close")) {
       closePopup(modal);
     }
+    if (evt.target === evt.currentTarget) {
+      closePopup(modal);
+    }
   });
 });
 
-addNewCardButton.addEventListener("mousedown", () => openModal(addCardModal));
+addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
@@ -180,6 +176,3 @@ const addFormValidator = new FormValidator(
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-editFormValidator.resetValidation();
-addFormValidator.resetValidation();
