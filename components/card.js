@@ -15,6 +15,7 @@ export default class Card {
 
   _handleDeleteCard() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
 
   _handleLikeIcon() {
