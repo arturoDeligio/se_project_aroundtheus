@@ -139,9 +139,6 @@ modals.forEach((modal) => {
     if (evt.target.classList.contains("modal__close")) {
       closePopup(modal);
     }
-    if (evt.target === evt.currentTarget) {
-      closePopup(modal);
-    }
   });
 });
 
