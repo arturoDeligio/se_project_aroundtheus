@@ -82,9 +82,16 @@ function closePopupEscapeKey(evt) {
   }
 }
 
-function renderCard(cardData, wrapper) {
+function createCard(cardData) {
   const card = new Card(cardData, cardSelector, handleImageClick);
-  wrapper.prepend(card.getView());
+
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+function renderCard(cardData, wrapper) {
+  const cardElement = createCard(cardData);
+  wrapper.prepend(cardElement);
 }
 
 function openModal(modal) {
