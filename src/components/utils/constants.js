@@ -37,3 +37,7 @@ export const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+export const profileEditButton = document.querySelector("#profile-edit-button");
+
+export const addNewCardButton = document.querySelector("#profile-add-button");
