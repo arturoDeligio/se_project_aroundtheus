@@ -1,9 +1,19 @@
 import Popup from "./Popup.js";
 
-// export default class PopupWithImage extends Popup {
-//     open({link, name}) {
-//         this._popupElement.querySelector(".modal__input").textContent = name;
-//         find image by modal__image selector, set 'src' and 'alt'
-//         super.open()
-//     }
-// }
+export default class PopupWithImage extends Popup {
+  constructor(popupSelector) {
+    super(popupSelector);
+    this._previewImage = this._popupElement.querySelector(
+      ".modal__preview-image"
+    );
+    this._previewImageTitle = this._popupElement.querySelector(
+      ".modal__preview-title"
+    );
+  }
+  open({ name, link }) {
+    this._previewImage.src = link;
+    this._previewImage.alt = name;
+    this._previewImageTitle = name;
+    super.open();
+  }
+}

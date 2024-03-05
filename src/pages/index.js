@@ -1,5 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import * as constants from "../components/utils/constants.js";
+
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -105,12 +107,12 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
-function handleImageClick(name, link) {
-  previewImage.setAttribute("src", link);
-  previewImage.setAttribute("alt", name);
-  previewImageTitle.textContent = name;
-  openModal(previewImageModal);
-}
+// function handleImageClick(name, link) {
+//   previewImage.setAttribute("src", link);
+//   previewImage.setAttribute("alt", name);
+//   previewImageTitle.textContent = name;
+//   openModal(previewImageModal);
+// }
 
 /* -------------------------------------------------------------------------- */
 /*                               Events handlers                              */
@@ -186,3 +188,26 @@ const addFormValidator = new FormValidator(
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+//new Section({renderer: function()}, containerSelector)
+
+const editProfileModalWithForm = new PopupWithForm({
+  popupSelector: "#profile-edit-modal",
+  handleFormSubmit: handleProfileEditSubmit,
+});
+editProfileModalWithForm._getInputValues();
+
+const addCardWithForm = new PopupWithForm({
+  popupSelector: "#add-card-modal",
+  handleFormSubmit: handleAddCardFormSubmit,
+});
+
+addCardWithForm._getInputValues();
+
+const modalWithImage = new PopupWithImage({
+  popupSelector: "#preview__image-modal",
+});
+
+function handleImageClick(name, link) {
+  modalWithImage.open({ name, link });
+}
