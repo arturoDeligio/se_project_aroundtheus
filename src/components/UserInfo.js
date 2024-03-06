@@ -6,13 +6,14 @@ export default class UserInfo {
 
   getUserInfo() {
     const userCurrentInfo = {};
-    userCurrentInfo = this._profileTitle.textContent;
-    userCurrentInfo = this._profileDescription.textContent;
+    userCurrentInfo.title = this._profileTitle.textContent;
+    userCurrentInfo.description = this._profileDescription.textContent;
     return userCurrentInfo;
   }
 
   setUserInfo(data) {
     this._profileTitle.textContent = data.title;
-    this._profileDescription = data.description;
+    this._profileDescription.textContent = data.description;
+    console.log("click");
   }
 }

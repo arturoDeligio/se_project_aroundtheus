@@ -38,6 +38,18 @@ export const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
+export const profileEditForm = document.forms["edit-card-form"];
+
 export const profileEditButton = document.querySelector("#profile-edit-button");
 
 export const addNewCardButton = document.querySelector("#profile-add-button");
+
+export const formList = [...document.forms];
+
+export const editProfileInputList = Array.from(
+  profileEditForm.querySelectorAll(".modal__input")
+);
+
+export const addCardFormElement = document.forms["add-card-form"];
+
+export const cardSelector = "#card-template";
