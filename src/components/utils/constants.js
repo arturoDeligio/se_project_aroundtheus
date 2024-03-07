@@ -53,3 +53,5 @@ export const editProfileInputList = Array.from(
 export const addCardFormElement = document.forms["add-card-form"];
 
 export const cardSelector = "#card-template";
+
+export const formValidationList = {};

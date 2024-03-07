@@ -9,6 +9,7 @@ import {
   editProfileInputList,
   profileEditForm,
   addCardFormElement,
+  formValidationList,
   cardSelector,
 } from "../components/utils/constants.js";
 
@@ -27,17 +28,22 @@ const userInfo = new UserInfo({
   profileDescription: ".profile__description",
 });
 
-const editFormValidator = new FormValidator(
-  validationSettings,
-  profileEditForm
-);
-const addFormValidator = new FormValidator(
-  validationSettings,
-  addCardFormElement
-);
+// const editFormValidator = new FormValidator(
+//   validationSettings,
+//   profileEditForm
+// );
+// const addFormValidator = new FormValidator(
+//   validationSettings,
+//   addCardFormElement
+// );
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+// editFormValidator.enableValidation();
+// addFormValidator.enableValidation();
+
+formList.forEach((form) => {
+  const validator = new FormValidator(form, validationSettings);
+  validator.enableValidation();
+});
 
 const editModalWithForm = new PopupWithForm(
   {
@@ -118,7 +124,7 @@ function handleAddCardFormSubmit(data) {
 
 profileEditButton.addEventListener("click", () => {
   userProfileInputData();
-  editFormValidator.disableButton();
+  // editFormValidator.disableButton();
   editModalWithForm.open();
 });
 
