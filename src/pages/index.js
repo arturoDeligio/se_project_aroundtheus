@@ -39,15 +39,19 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const editModalWithForm = new PopupWithForm({
-  popupSelector: "#profile-edit-modal",
-  handleFormSubmit: handleProfileEditSubmit,
-});
+const editModalWithForm = new PopupWithForm(
+  {
+    popupSelector: "#profile-edit-modal",
+  },
+  handleProfileEditSubmit
+);
 
-const addCardWithForm = new PopupWithForm({
-  popupSelector: "#add-card-modal",
-  handleFormSubmit: handleAddCardFormSubmit,
-});
+const addCardWithForm = new PopupWithForm(
+  {
+    popupSelector: "#add-card-modal",
+  },
+  handleAddCardFormSubmit
+);
 
 addCardWithForm.setEventListeners();
 
@@ -81,8 +85,8 @@ const cardsRenderer = new Section(
 //   "#profile-description-input"
 // );
 
-console.log(formList);
-console.log(editProfileInputList);
+// console.log(formList);
+// console.log(editProfileInputList);
 // const profileEditForm = document.forms["edit-card-form"];
 // const cardListEl = document.querySelector(".cards__gallery");
 
@@ -140,7 +144,7 @@ function handleProfileEditSubmit(value) {
   editModalWithForm.close();
 }
 
-function handleAddCardFormSubmit(e) {
+function handleAddCardFormSubmit(data) {
   const newCard = createCard(data);
   cardsRenderer.addItem(newCard);
   addFormValidator.disableButton();
@@ -162,7 +166,7 @@ addNewCardButton.addEventListener("click", () => addCardWithForm.open());
 
 // profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+// addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 /* -------------------------------------------------------------------------- */
 /*                                 validation settings                               */
