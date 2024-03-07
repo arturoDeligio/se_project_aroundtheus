@@ -69,6 +69,65 @@ const cardsRenderer = new Section(
   ".cards__gallery"
 );
 
+// /* -------------------------------------------------------------------------- */
+/*                                  functions                                 */
+/* -------------------------------------------------------------------------- */
+
+function createCard(cardData) {
+  const card = new Card(cardData, cardSelector, handleImageClick);
+
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+// function renderCard(cardData, wrapper) {
+//   const cardElement = createCard(cardData);
+//   wrapper.prepend(cardElement);
+// }
+
+function handleImageClick(name, link) {
+  modalWithImage.open({ name, link });
+}
+
+function userProfileInputData() {
+  const userData = userInfo.getUserInfo();
+  editProfileInputList[0].value = userData.title;
+  editProfileInputList[1].value = userData.description.trim();
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Events handlers                              */
+/* -------------------------------------------------------------------------- */
+
+function handleProfileEditSubmit(value) {
+  userInfo.setUserInfo(value);
+  editModalWithForm.close();
+}
+
+function handleAddCardFormSubmit(data) {
+  const newCard = createCard(data);
+  cardsRenderer.addItem(newCard);
+  addFormValidator.disableButton();
+  addFormValidator.resetValidation();
+  addCardWithForm.close();
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Event Listeners                              */
+/* -------------------------------------------------------------------------- */
+
+profileEditButton.addEventListener("click", () => {
+  userProfileInputData();
+  editFormValidator.disableButton();
+  editModalWithForm.open();
+});
+
+addNewCardButton.addEventListener("click", () => addCardWithForm.open());
+
+cardsRenderer.renderItems();
+
+editModalWithForm.setEventListeners();
+
 // const profileEditButton = document.querySelector("#profile-edit-button");
 // const profileEditModal = document.querySelector("#profile-edit-modal");
 
@@ -102,76 +161,4 @@ const cardsRenderer = new Section(
 // );
 
 // const modals = document.querySelectorAll(".modal");
-// /* -------------------------------------------------------------------------- */
-/*                                  functions                                 */
-/* -------------------------------------------------------------------------- */
-
-function createCard(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
-
-  const cardElement = card.getView();
-  return cardElement;
-}
-
-function renderCard(cardData, wrapper) {
-  const cardElement = createCard(cardData);
-  wrapper.prepend(cardElement);
-}
-
-function handleImageClick(name, link) {
-  modalWithImage.open({ name, link });
-}
-
-function userProfileInputData() {
-  const userData = userInfo.getUserInfo();
-  editProfileInputList[0].value = userData.title;
-  editProfileInputList[1].value = userData.description.trim();
-}
-
-/* -------------------------------------------------------------------------- */
-/*                               Events handlers                              */
-/* -------------------------------------------------------------------------- */
-// function handleProfileEditSubmit(e) {
-//   e.preventDefault();
-//   profileTitle.textContent = profileEditTitleInput.value;
-//   profileDescription.textContent = profileEditDescriptionInput.value;
-//   editFormValidator.disableButton();
-//   editModalWithForm.close();
-// }
-
-function handleProfileEditSubmit(value) {
-  userInfo.setUserInfo(value);
-  editModalWithForm.close();
-}
-
-function handleAddCardFormSubmit(data) {
-  const newCard = createCard(data);
-  cardsRenderer.addItem(newCard);
-  addFormValidator.disableButton();
-  addFormValidator.resetValidation();
-  addCardWithForm.close();
-}
-
-/* -------------------------------------------------------------------------- */
-/*                               Event Listeners                              */
-/* -------------------------------------------------------------------------- */
-
-profileEditButton.addEventListener("click", () => {
-  userProfileInputData();
-  editFormValidator.disableButton();
-  editModalWithForm.open();
-});
-
-addNewCardButton.addEventListener("click", () => addCardWithForm.open());
-
-// profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-
-// addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-
-/* -------------------------------------------------------------------------- */
-/*                                 validation settings                               */
-/* -------------------------------------------------------------------------- */
-
-cardsRenderer.renderItems();
-
-editModalWithForm.setEventListeners();
+// /* ---------------------------------------------------
