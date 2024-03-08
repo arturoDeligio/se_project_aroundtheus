@@ -48,6 +48,14 @@ export const editProfileInputList = Array.from(
   profileEditForm.querySelectorAll(".modal__input")
 );
 
+export const editModalInputTitle = document.querySelector(
+  "#profile-title-input"
+);
+
+export const editModalDescription = document.querySelector(
+  "#profile-description-input"
+);
+
 export const addCardFormElement = document.forms["add-card-form"];
 
 export const cardSelector = "#card-template";

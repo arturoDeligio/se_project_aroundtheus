@@ -6,13 +6,12 @@ import {
   profileEditButton,
   addNewCardButton,
   formList,
-  editProfileInputList,
-  profileEditForm,
-  addCardFormElement,
+  editModalInputTitle,
+  editModalDescription,
   formValidators,
   cardSelector,
   forms,
-} from "../components/utils/constants.js";
+} from "../utils/constants.js";
 
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
@@ -35,9 +34,6 @@ formList.forEach((form) => {
   formValidators[form.name] = validator;
   forms[form.name] = form;
 });
-
-console.log(formValidators);
-console.log(formList);
 
 const editModalWithForm = new PopupWithForm(
   {
@@ -84,10 +80,10 @@ function handleImageClick(name, link) {
   modalWithImage.open({ name, link });
 }
 
-function userProfileInputData() {
+function fillUserData() {
   const userData = userInfo.getUserInfo();
-  editProfileInputList[0].value = userData.title;
-  editProfileInputList[1].value = userData.description.trim();
+  editModalInputTitle.value = userData.title;
+  editModalDescription.value = userData.description.trim();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -112,7 +108,7 @@ function handleAddCardFormSubmit({ title, link }) {
 /* -------------------------------------------------------------------------- */
 
 profileEditButton.addEventListener("click", () => {
-  userProfileInputData();
+  fillUserData();
 
   formValidators["editCardForm"].resetValidation();
   editModalWithForm.open();
