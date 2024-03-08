@@ -9,8 +9,9 @@ import {
   editProfileInputList,
   profileEditForm,
   addCardFormElement,
-  formValidationList,
+  formValidators,
   cardSelector,
+  forms,
 } from "../components/utils/constants.js";
 
 import Section from "../components/Section.js";
@@ -28,22 +29,15 @@ const userInfo = new UserInfo({
   profileDescription: ".profile__description",
 });
 
-// const editFormValidator = new FormValidator(
-//   validationSettings,
-//   profileEditForm
-// );
-// const addFormValidator = new FormValidator(
-//   validationSettings,
-//   addCardFormElement
-// );
-
-// editFormValidator.enableValidation();
-// addFormValidator.enableValidation();
-
 formList.forEach((form) => {
-  const validator = new FormValidator(form, validationSettings);
+  const validator = new FormValidator(validationSettings, form);
   validator.enableValidation();
+  formValidators[form.name] = validator;
+  forms[form.name] = form;
 });
+
+console.log(formValidators);
+console.log(formList);
 
 const editModalWithForm = new PopupWithForm(
   {
@@ -86,11 +80,6 @@ function createCard(cardData) {
   return cardElement;
 }
 
-// function renderCard(cardData, wrapper) {
-//   const cardElement = createCard(cardData);
-//   wrapper.prepend(cardElement);
-// }
-
 function handleImageClick(name, link) {
   modalWithImage.open({ name, link });
 }
@@ -110,11 +99,11 @@ function handleProfileEditSubmit(value) {
   editModalWithForm.close();
 }
 
-function handleAddCardFormSubmit(data) {
-  const newCard = createCard(data);
+function handleAddCardFormSubmit({ title, link }) {
+  const newCard = createCard({ name: title, link });
   cardsRenderer.addItem(newCard);
-  addFormValidator.disableButton();
-  addFormValidator.resetValidation();
+  formValidators["addCardForm"].disableButton();
+  forms.addCardForm.reset();
   addCardWithForm.close();
 }
 
@@ -124,7 +113,8 @@ function handleAddCardFormSubmit(data) {
 
 profileEditButton.addEventListener("click", () => {
   userProfileInputData();
-  // editFormValidator.disableButton();
+
+  formValidators["editCardForm"].resetValidation();
   editModalWithForm.open();
 });
 

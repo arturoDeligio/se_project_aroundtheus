@@ -44,8 +44,6 @@ export const profileEditButton = document.querySelector("#profile-edit-button");
 
 export const addNewCardButton = document.querySelector("#profile-add-button");
 
-export const formList = [...document.forms];
-
 export const editProfileInputList = Array.from(
   profileEditForm.querySelectorAll(".modal__input")
 );
@@ -53,5 +51,9 @@ export const editProfileInputList = Array.from(
 export const addCardFormElement = document.forms["add-card-form"];
 
 export const cardSelector = "#card-template";
+export const formList = [...document.querySelectorAll(".modal__form")];
+//{editCardForm: htmlelement} formList.editCardForm
 
-export const formValidationList = {};
+export const formValidators = {};
+
+export const forms = {};
